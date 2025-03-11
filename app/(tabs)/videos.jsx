@@ -1,5 +1,5 @@
 import { FlatList, StatusBar,Button, StyleSheet, Text, TouchableOpacity, View ,Image, ToastAndroid, ScrollView} from 'react-native'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import v1 from "../../assets/videos/bindu1.mp4"
 import v2 from "../../assets/videos/bindu2.mp4"
 import v3 from "../../assets/videos/bindu3.mp4"
@@ -19,8 +19,9 @@ import v16 from "../../assets/videos/bindu16.mp4"
 import v17 from "../../assets/videos/bindu17.mp4"
 import { useEvent } from 'expo';
 import { useVideoPlayer, VideoView } from 'expo-video';
-
 const Videos = () => {
+
+
 
 
   const Toast = () => {
@@ -69,7 +70,7 @@ const Videos = () => {
     <ScrollView>
     <View style={styles.container}>
       <View style={styles.top}>
-        <Text style={{color:'red', fontWeight:'bold', fontSize:30, marginLeft:20}}>Videos🦍😂</Text>
+        <Text style={{color:'red', fontWeight:'bold', fontSize:22, marginLeft:20}}>Comedy Unleashed!😂🎬</Text>
           <TouchableOpacity onPress={Toast} style={styles.refreshBtn}>
             <Text style={{color:'white'}}>Refresh</Text>
           </TouchableOpacity>
@@ -145,19 +146,20 @@ const styles = StyleSheet.create({
     width: 350,
     height: 275,
     borderWidth:0.2,
-    borderColor:'red'
+    borderColor:'black'
   },
   container:{
     flex:1,
     padding:10,
-    backgroundColor:'white'
+    backgroundColor:'white',
+    marginTop:30
   },
   top:{
     flexDirection:'row',
     alignItems:'center',
     justifyContent:'space-between',
     marginTop:20,
-    marginBottom:10
+    marginBottom:10,
   },
   refreshBtn:{
     backgroundColor:'green',

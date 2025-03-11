@@ -17,7 +17,7 @@ const Wishes = () => {
   return (
     <View style={styles.container}>
       <View style={styles.top}>
-        <Text style={{color:'red', fontWeight:'bold', fontSize:30,marginLeft:20}}>Birthday Wishes</Text>
+        <Text style={{color:'red', fontWeight:'bold', fontSize:22,marginLeft:20}}>Birthday Wishes</Text>
           <TouchableOpacity onPress={Toast} style={styles.refreshBtn}>
             <Text style={{color:'white'}}>Refresh</Text>
           </TouchableOpacity>
@@ -70,13 +70,15 @@ const styles = StyleSheet.create({
   container:{
     flex:1,
     padding:10,
-    backgroundColor:'white'
+    backgroundColor:'white',
+    marginTop:30
   },
   top:{
     flexDirection:'row',
     alignItems:'center',
     justifyContent:'space-between',
-    marginTop:20
+    marginTop:20,
+    marginBottom:10
   },
   refreshBtn:{
     backgroundColor:'green',
@@ -89,14 +91,15 @@ const styles = StyleSheet.create({
     flexDirection:'row',
     alignItems:'center',
     justifyContent:'',
-    gap:20,
+    gap:10,
     margin:10,
     flexWrap:'nowrap',
     padding:10,
     borderTopLeftRadius:30,
     borderBottomRightRadius:30,
     borderColor:'red',
-    borderWidth:1
+    borderWidth:1,
+    paddingRight:10
   },
   wishMsg:{
     flexDirection:'column',

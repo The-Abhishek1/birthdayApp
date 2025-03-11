@@ -1,11 +1,12 @@
 import React,{useEffect} from 'react';
-import {ImageBackground,Animated ,StyleSheet,View, Text, TouchableNativeFeedback, ViewComponent, TouchableOpacity} from 'react-native';
+import {ImageBackground,Animated ,StyleSheet,View, Text, TouchableNativeFeedback, ViewComponent, TouchableOpacity, Image} from 'react-native';
 import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
 import coffee from "../assets/images/coffee.jpg"
 import { useRouter } from 'expo-router';
 import { Platform } from 'react-native';
-
-
+import b from "../assets/images/back.jpg"
+import coffee2 from "../assets/images/coffee2.png"
+import { StatusBar } from 'expo-status-bar';
 
 const App = () => {
 
@@ -19,19 +20,23 @@ const App = () => {
       duration: 4000, // 2 seconds
       useNativeDriver: true,
     }).start(() => {
-      // Navigate to Home after 3 seconds
-      setTimeout(() => router.push('/(tabs)/home'), 1000);
+      // Navigate to Funny after 3 seconds
+      setTimeout(() => router.push('/funny'), 1000);
     });
   }, [fadeAnim, router]);
   return(
 
   <SafeAreaProvider>
     <SafeAreaView style={styles.container} edges={['left', 'right']}>
-      <ImageBackground source={coffee} resizeMode="cover" style={styles.image}>
+      <ImageBackground source={b} resizeMode="cover" style={styles.image}>
         <Animated.View style={{ opacity: fadeAnim }}> 
         <Text style={styles.text}>Welcome Coffee!❤️‍🔥</Text>
         </Animated.View>
+        <View style={{flexDirection:'column', alignItems:'center', justifyContent:'center'}}>
+          <Image style={{width:300, height:200}} source={coffee2}/>
+        </View>
       </ImageBackground>
+      <StatusBar backgroundColor='#5eb0e0' style='light'/>
     </SafeAreaView>
   </SafeAreaProvider>
   )

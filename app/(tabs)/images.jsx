@@ -24,6 +24,8 @@ import i22 from "../../assets/images/b22.jpg"
 import i23 from "../../assets/images/b23.jpg"
 import i24 from "../../assets/images/b24.jpg"
 import i25 from "../../assets/images/b25.jpg"
+import i26 from "../../assets/images/b26.jpg"
+import i28 from "../../assets/images/b28.jpg"
 
 const Images = () => {
 
@@ -36,7 +38,7 @@ const Images = () => {
   return (
     <View style={styles.container}>
       <View style={styles.top}>
-        <Text style={{color:'red', fontWeight:'bold', fontSize:30, marginLeft:20}}>Gorilla Images🦍😂</Text>
+        <Text style={{color:'red', fontWeight:'bold', fontSize:22, marginLeft:20}}>Freeze the Fun! 😂📸</Text>
           <TouchableOpacity onPress={Toast} style={styles.refreshBtn}>
             <Text style={{color:'white'}}>Refresh</Text>
           </TouchableOpacity>
@@ -123,23 +125,28 @@ const Images = () => {
         },
         {
           
-          image : i24,
-          message: "When your TBR pile is as high as your ambitions! She dives into books like a coder into lines of code, always seeking knowledge and wisdom! 📖✨"
+          image : i25,
+          message: "If food was a love language, she’d be fluent! 😂 Just look at that pure joy while enjoying her favorite treats—proof that good food = good mood! 🍔❤️"
         },
         {
           
-          image : i25,
-          message: "If food was a love language, she’d be fluent! 😂 Just look at that pure joy while enjoying her favorite treats—proof that good food = good mood! 🍔❤️"
+          image : i26,
+          message: "When your TBR pile is as high as your ambitions! She dives into books like a coder into lines of code, always seeking knowledge and wisdom! 📖✨"
         },
         {
           
           image : i18,
           message: "When your TBR pile is as high as your ambitions! She dives into books like a coder into lines of code, always seeking knowledge and wisdom! 📖✨"
         },
+        {
+          
+          image : i28,
+          message: "When your TBR pile is as high as your ambitions! She dives into books like a coder into lines of code, always seeking knowledge and wisdom! 📖✨"
+        },
       ]}
       renderItem = {({item}) => (
         <View style={styles.imgcollection} key={item.key}>
-          <Image style={styles.img} resizeMode='contain' source={item.image}/>
+          <Image style={styles.img} resizeMode='cover' source={item.image}/>
           <View style={{width:300}}>
             <Text style={{textAlign:'center', fontSize:17}}>{item.message}</Text>
           </View>
@@ -154,9 +161,9 @@ export default Images
 
 const styles = StyleSheet.create({
   img:{
-    width:200,
-    height:500,
-    borderRadius:30
+    width:330,
+    height:550,
+    borderRadius:20,
   },
   imgcollection:{
     flexDirection:'column',
@@ -164,8 +171,8 @@ const styles = StyleSheet.create({
     justifyContent:'center',
     gap:15,
     borderWidth:0.5,
-    margin:10,
-    padding:10,
+    margin:5,
+    padding:5,
     paddingVertical:35,
     borderTopLeftRadius:50,
     borderBottomRightRadius:50,
@@ -174,7 +181,8 @@ const styles = StyleSheet.create({
   container:{
     flex:1,
     padding:10,
-    backgroundColor:'white'
+    backgroundColor:'white',
+    marginTop:30
   },
   top:{
     flexDirection:'row',

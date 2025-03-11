@@ -1,90 +1,136 @@
 import React, { useState, useEffect } from 'react';
-import { View, ImageBackground,Image,Text, StyleSheet, TouchableOpacity, Animated, ToastAndroid } from 'react-native';
+import { View, ImageBackground,Image,Text, StyleSheet,FlatList, TouchableOpacity, ToastAndroid } from 'react-native';
 import banner from "../../assets/images/banner.jpg"
 import ConfettiCannon from 'react-native-confetti-cannon';
-import b1 from "../../assets/images/b8.jpg"
+import b from "../../assets/images/b27.jpg"
 import * as Animatable from 'react-native-animatable';
+import { BlurView } from 'expo-blur';
+import b1 from "../../assets/images/back.jpg"
+import { StatusBar } from 'expo-status-bar';
+import Ionicons from '@expo/vector-icons/Ionicons';
+import i4 from "../../assets/images/g4.jpg"
+import i5 from "../../assets/images/g5.png"
+import i6 from "../../assets/images/g6.jpg"
+import i7 from "../../assets/images/g7.jpg"
+import i8 from "../../assets/images/g8.jpg"
+import i9 from "../../assets/images/g9.webp"
+import i10 from "../../assets/images/g10.jpg"
+import i11 from "../../assets/images/g11.jpg"
+import i12 from "../../assets/images/g12.jpg"
+import i13 from "../../assets/images/g13.jpg"
+import i14 from "../../assets/images/g14.jpg"
+import i15 from "../../assets/images/g15.jpg"
+import i16 from "../../assets/images/g16.jpg"
+import last from "../../assets/images/last.png"
 
 const Home = () => {
-  
-  const [secondsLeft, setSecondsLeft] = useState(getSecondsUntilBirthday());
-  
-  // Countdown Timer
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setSecondsLeft((prev) => Math.max(prev - 1, 0));
-    }, 1000);
-    return () => clearInterval(interval);
-  }, []);
 
+  useEffect(()=>{
+    const showToast = () => {
+      ToastAndroid.show("Happy Birthday Gorilla😂☕🦍",
+        ToastAndroid.LONG,
+        ToastAndroid.TOP
+      )
+    }
+  showToast()
 
-
-  // Convert seconds to days, hours, mins, secs
-  const Days = () => {
-    return Math.floor(secondsLeft / (3600 * 24))
-  };
-  const Hours = ()=>{
-    return  Math.floor((secondsLeft % (3600 * 24)) / 3600)
-  }
-  const Minutes = () =>{
-    return  Math.floor((secondsLeft % 3600) / 60)
-  }
-  const Seconds = () =>{
-    return  Math.floor(secondsLeft % 60)
-  }
-  const showToast = () => {
-    ToastAndroid.show("Happy Birthday Gorilla😂😂🦍",
-      ToastAndroid.LONG,
-      ToastAndroid.TOP
-    )
-  }
-
+  },[])
 
   return (
-    <View style={styles.container}>
-      <View style={styles.countdownContainer}>
-        <View style={styles.insidecountdown}>
-          <Text style={styles.ctext}>Days</Text>
-          <Text style={styles.countdownText}>{Days()}</Text>
-        </View>
-        <View style={styles.insidecountdown}>
-          <Text style={styles.ctext}>Hours</Text>
-          <Text style={styles.countdownText}>{Hours()}</Text>
-        </View>
-        <View style={styles.insidecountdown}>
-          <Text style={styles.ctext}>Minutes</Text>
-          <Text style={styles.countdownText}>{Minutes()}</Text>
-        </View>
-        <View style={styles.insidecountdown}>
-          <Text style={styles.ctext}>Seconds</Text>
-          <Text style={styles.countdownText}>{Seconds()}</Text>
-        </View>
-      </View>
-      <ImageBackground source={banner}  resizeMode="cover" style={styles.banner}>
-        <Image resizeMode='cover' source={b1} style={styles.bindu}/>
-        <View style={{width:240, marginTop:260, marginBottom:20}}>
-          <Animatable.Text animation="pulse" easing="ease-out" iterationCount="infinite" style={{color:'red', fontSize:17, textAlign:'center',fontFamily:"DancingScript-Regular", lineHeight:23}}>
-          You’re the sweetest bug in my code, the breakpoint to my chaos! 💕 Wishing you <Animatable.Text style={{color:'blue'}}>if (happiness && love) (return forever;)💖</Animatable.Text> May your day be filled with warmth, joy, and all things caffeinated! 🦍✨ You make my life’s syntax perfect, and my heart’s program run smoothly! 🥰
+    <>
+      <ImageBackground source={b1} style={{ padding:20,flex:1, alignItems:'center', justifyContent:'center'}} resizeMode="cover">
+        <View style={{flexDirection:'column', marginTop:70, gap:20, alignItems:'center', justifyContent:'center'}}>
+          <Animatable.Text animation='flash' easing="ease-in-out-cubic" style={{color:'red', fontSize:27, textAlign:'center',fontFamily:"DancingScript-Regular",  
+            textShadowColor: 'rgb(211, 16, 16)',
+          textShadowOffset: {width: -4, height: 4},
+          textShadowRadius: 10,
+          fontWeight:'bold',
+          textTransform:'uppercase'}}>
+            Happy Birthday Coffee!!
           </Animatable.Text>
+          <View style={{flexDirection:'column',gap:10, justifyContent:'center', alignItems:'center'}}>
+            <Animatable.Image animation='zoomIn' resizeMode='contain' source={b} style={styles.img}/>
+            <Animatable.Text animation='fadeIn' easing="ease-out" style={{color:'black', fontSize:17, textAlign:'center',fontFamily:"DancingScript-Regular", lineHeight:23,  
+            textShadowColor: 'rgba(58, 58, 58, 0.64)',
+          textShadowOffset: {width: -3, height: 3},
+          textShadowRadius: 10}}>
+            You’re the sweetest bug in my code, the breakpoint to my chaos! 💕, Wishing you 
+            <Animatable.Text style={{color:'red', 
+            textShadowColor: 'rgba(255, 83, 83, 0.64)',
+          textShadowOffset: {width: -3, height: 3},
+          textShadowRadius: 10}}> if (happiness && love) (return forever;)💖.</Animatable.Text> May your day be filled with warmth, joy, and all things caffeinated! 🦍✨
+            </Animatable.Text>
+          </View>
+            <FlatList
+            horizontal={true}
+        data = {[
+          {
+            image : i4,
+          },
+          {
+            image : i5,
+          },
+          {
+            image : i6,
+          },
+          {
+            image : i8,
+          },
+          {
+            image : i12,
+          },
+          {
+            image : i16,
+          },
+          {
+            image : i9,
+          },
+          {
+            image : i14,
+          },
+          {
+            image : i15,
+          },
+          {
+            image : i10,
+          },
+          {
+            image : i11,
+          },
+          {
+            image : i13,
+          },
+          {
+            image : i7,
+          },
+          {
+            image : last,
+          },
+        ]}
+        renderItem = {({item}) => (
+          <View style={{alignItems:'center', justifyContent:'center',gap:10, padding:10, margin:10,borderColor:"red", borderWidth:.5, height:300,}} key={item.key}>
+            <Image style={{width:250,height:250, borderTopLeftRadius:50, borderBottomRightRadius:50}} resizeMode='cover' source={item.image}/>
+            {/* <View style={{width:250}}>
+              <Text style={{textAlign:'center', fontSize:17}}>{item.message}</Text>
+            </View> */}
+            <View style={{flexDirection:'row', alignItems:'center',justifyContent:'center', gap:20}}>
+              <Ionicons name= "arrow-undo-circle" color='red' size={24} />
+              <Text style={{fontSize:17}}>Slide</Text>
+              <Ionicons name= "arrow-redo-circle" color='red' size={24} />
+            </View>
+          </View>
+    )}
+        />
         </View>
         <ConfettiCannon
         style ={styles.confetti}
           count={200}
-          origin={{x: 10, y: 10}}
+          origin={{x: 30, y: 510}}
           autoStart={true}
-        /> 
+        />
       </ImageBackground>
-    
-    </View>
+    </>
   );
-};
-
-// Helper to calculate seconds until Bindu's birthday
-const getSecondsUntilBirthday = () => {
-  const birthday = new Date('2025-04-12T00:00:00'); // Adjust this date!
-  const now = new Date();
-  const diff = (birthday - now) / 1000; // Seconds difference
-  return Math.max(diff, 0); // Ensure no negative
 };
 
 const styles = StyleSheet.create({
@@ -93,62 +139,9 @@ const styles = StyleSheet.create({
     top:0,
     zIndex:1000
   },
-  bindu:{
-    width:230,
-    height:250,
-    position:"absolute",
-    top:120,
-    borderBottomLeftRadius:30,
-    borderTopRightRadius:30
-  },
-  confettiBtn:{
-    backgroundColor:'red',
-    padding:10
-  },
-  container: {
-    backgroundColor: 'white',
-    flex:1,
-    padding:10
-  },
-  banner:{
-    flex:1,
-    justifyContent:'center',
-    alignItems:'center',
-  },
-  countdownContainer: {
-    flexDirection:'row',
-    alignItems:'center',
-    justifyContent:'center',
-    gap:25,
-    paddingVertical:20,
-  },
-  insidecountdown:{
-    flexDirection:'column',
-    backgroundColor:'red',
-    alignItems:'center',
-    justifyContent:'center',
-    padding:15,
-    paddingHorizontal:20
-  },
-  countdownText: {
-    color:"white",
-    fontWeight:'bold',
-    fontSize:30
-  },
-  birthday:{
-    flexDirection:'row',
-    position:"absolute",
-    top:140,
-    alignItems:'center',
-    gap:2
-  },
-  wish:{
-    fontWeight:'bold',
-    fontStyle:"italic",
-    fontSize:30
-  },
-  emoji:{
-    fontSize:30
+  img:{
+    width:300,
+    height:200,
   }
   
 });
